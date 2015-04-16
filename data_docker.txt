@@ -1,0 +1,35 @@
+// Instalar docker en fedore - hay que eliminar un paquete de igual nombre
+yum -y remove docker
+yum -y install docker-io
+yum -y update docker-io
+
+// Chequeo de version
+docker -v
+
+// Correr el daemon de docker
+systemctl start docker
+
+// Crear un container de fedora y otro de debian
+docker run -i -t fedora /bin/bash
+docker run -i -t debian /bin/bash
+docker pull ubuntu
+
+// Consultas de estado
+docker stats
+docker stats --help
+docker ps -a
+docker images
+
+// Imagenes de disco
+du /var/lib/docker/devicemapper/mnt/
+  
+// Iniciar, detener y eecutar comando en un container
+docker stop happy_hopper
+docker start happy_hopper
+docker exec -it 40129af9a29b  bash
+docker exec -t happy_hopper  bash
+
+// Exportar container
+docker commit happy_hopper myimage
+docker save  myimage > /tmp/mi.tar
+docker load < mi.tar
