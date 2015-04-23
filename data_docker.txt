@@ -27,7 +27,7 @@ du /var/lib/docker/devicemapper/mnt/
 docker stop happy_hopper
 docker start happy_hopper
 docker exec -it 40129af9a29b  bash
-docker exec -t happy_hopper  bash
+docker exec -ti happy_hopper  bash
 
 // Exportar container
 docker commit happy_hopper myimage
